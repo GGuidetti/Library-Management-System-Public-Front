@@ -1,0 +1,13 @@
+<div class="home-container">
+  <nav class="sidebar">
+    <h2>Library System</h2>
+    <ul>
+      <li><a routerLink="/books">Lista de Livros</a></li>
+      <li><a routerLink="/loans">Meus empréstimos</a></li>
+      <li><a (click)="logout()">Logout</a></li>
+    </ul>
+  </nav>
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

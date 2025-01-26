@@ -1,0 +1,46 @@
+<div class="loans-list-container">
+  <h2>Lista de Empréstimos</h2>
+
+  <div *ngIf="loans.length > 0; else noLoans">
+    <div class="loan-item" *ngFor="let loan of loans">
+      <div class="book-title">{{ loan.bookName }}</div>
+      <div class="loan-details">
+        <p><strong>Data do Empréstimo:</strong> {{ loan.loanDate | date: 'dd/MM/yyyy' }}</p>
+        <p><strong>Data de Devolução:</strong> {{ loan.returnDate | date: 'dd/MM/yyyy' }}</p>
+      </div>
+      <div class="loan-status">{{ loan.status }}</div>
+
+      <button (click)="openEditDialog(editLoanModal, loan)">Editar</button>
+      <!-- Disabled pq não acho que o usuário deveria poder apagar isso -->
+      <button (click)="onDeleteLoan(loan)" disabled >Deletar</button>
+    </div>
+  </div>
+
+  <ng-template #noLoans>
+    <p>Você não tem empréstimos registrados.</p>
+  </ng-template>
+</div>
+
+<ng-template #editLoanModal>
+  <h2>Editar Empréstimo</h2>
+
+  <form [formGroup]="editLoanForm" (ngSubmit)="onSubmitEdit()">
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select id="status" formControlName="status">
+        <option value="Em empréstimo">Em empréstimo</option>
+        <option value="Devolvido">Devolvido</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="returnDate">Data de Devolução</label>
+      <input id="returnDate" type="date" formControlName="returnDate" />
+    </div>
+
+    <div class="actions">
+      <button type="submit">Salvar</button>
+      <button type="button" (click)="cancelEdit()">Cancelar</button>
+    </div>
+  </form>
+</ng-template>

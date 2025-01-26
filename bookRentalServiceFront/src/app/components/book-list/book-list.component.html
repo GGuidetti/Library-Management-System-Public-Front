@@ -1,0 +1,60 @@
+<div class="book-list">
+  <div *ngIf="recommendedBooks.length > 0; else noRecommendations">
+    <h3>Livros Recomendados para Você</h3>
+    <div class="recommended-books">
+      <div *ngFor="let book of recommendedBooks" class="recommended-book">
+        <h4>{{ book.title }}</h4>
+        <p>{{ book.author }}</p>
+        <p>{{ book.category }}</p>
+      </div>
+    </div>
+  </div>
+  <h2>Lista de Livros</h2>
+
+  <button class="add-book-button" (click)="onAddBook()">Novo Livro</button>
+  <div class="books-grid">
+    <div class="book-card" *ngFor="let book of books">
+      <h3>{{ book.title }}</h3>
+      <p>Author: {{ book.author }}</p>
+      <p>Category: {{ book.category }}</p>
+      <p>ISBN: {{ book.isbn }}</p>
+      <button (click)="onLoanBook(book)">Loan Book</button>
+      <button (click)="onEditBook(book, editBookTemplate)">Editar</button>
+      <button (click)="onDeleteBook(book)">Deletar</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #editBookTemplate let-book="book">
+  <h2>Editar Livro</h2>
+  <form [formGroup]="editBookForm" (ngSubmit)="onSubmitEdit()">
+    <div class="form-group">
+      <label for="title">Título</label>
+      <input id="title" formControlName="title" type="text" />
+    </div>
+
+    <div class="form-group">
+      <label for="author">Autor</label>
+      <input id="author" formControlName="author" type="text" />
+    </div>
+
+    <div class="form-group">
+      <label for="category">Categoria</label>
+      <input id="category" formControlName="category" type="text" />
+    </div>
+
+    <div class="form-group">
+      <label for="isbn">ISBN</label>
+      <input id="isbn" formControlName="isbn" type="text" />
+    </div>
+
+    <div class="actions">
+      <button type="submit" [disabled]="editBookForm.invalid">Salvar</button>
+      <button type="button" (click)="cancelEdit()">Cancelar</button>
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #noRecommendations>
+  <p>Não há recomendações no momento.</p>
+</ng-template>

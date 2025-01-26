@@ -1,0 +1,85 @@
+/* loans-list.component.css */
+
+/* Estilo do container da lista */
+.loans-list-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título da lista */
+.loans-list-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Estilo da lista de empréstimos */
+.loan-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Título do livro (em cada item) */
+.loan-item .book-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+/* Detalhes do empréstimo */
+.loan-item .loan-details {
+  font-size: 14px;
+  color: #7f8c8d;
+}
+
+/* Detalhes do status de empréstimo */
+.loan-item .loan-status {
+  font-weight: bold;
+  color: #e74c3c; /* Vermelho para indicar status */
+  margin-top: 10px;
+}
+
+/* Botão de emprestimo em cada item */
+.loan-item button {
+  align-self: flex-start;
+  padding: 8px 12px;
+  margin-top: 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.loan-item button:hover {
+  background-color: #2980b9;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .loans-list-container {
+    padding: 10px;
+  }
+
+  .loan-item {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .loan-item .book-title {
+    font-size: 16px;
+  }
+
+  .loan-item .loan-details {
+    font-size: 12px;
+  }
+}
