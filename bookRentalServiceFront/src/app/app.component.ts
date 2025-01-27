@@ -10,10 +10,6 @@ import { LoanBookComponent } from './components/loan-book/loan-book.component';
   standalone: true,
   imports: [
     RouterOutlet,
-    LoginComponent,
-    HomeComponent,
-    BookListComponent,
-    LoanBookComponent
   ],
   template: '<router-outlet></router-outlet>'
 })
