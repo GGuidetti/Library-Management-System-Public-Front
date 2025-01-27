@@ -1,0 +1,14 @@
+<div>
+  <input [(ngModel)]="searchTitle" placeholder="Search for a book" />
+  <button (click)="onSearch()">Search</button>
+
+  <div *ngIf="books.length > 0">
+    <h3>Search Results</h3>
+    <div *ngFor="let book of books">
+      <div>
+        <h4>{{ book.title }}</h4>
+        <button (click)="onAddToLibrary(book)">Adicionar na biblioteca</button>
+      </div>
+    </div>
+  </div>
+</div>

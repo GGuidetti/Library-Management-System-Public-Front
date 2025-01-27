@@ -1,4 +1,5 @@
 <div class="book-list">
+  <app-book-search></app-book-search>
   <div *ngIf="recommendedBooks.length > 0; else noRecommendations">
     <h3>Livros Recomendados para Você</h3>
     <div class="recommended-books">
@@ -18,7 +19,7 @@
       <p>Author: {{ book.author }}</p>
       <p>Category: {{ book.category }}</p>
       <p>ISBN: {{ book.isbn }}</p>
-      <button (click)="onLoanBook(book)">Loan Book</button>
+      <button (click)="onLoanBook(book)">Emprestar</button>
       <button (click)="onEditBook(book, editBookTemplate)">Editar</button>
       <button (click)="onDeleteBook(book)">Deletar</button>
     </div>

@@ -7,6 +7,7 @@ import {NgForOf, NgIf} from '@angular/common';
 import {LoanBookComponent} from '../loan-book/loan-book.component';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
+import {BookSearchComponent} from '../book-search/book-search.component';
 
 @Component({
   selector: 'app-book-list',
@@ -15,7 +16,8 @@ import {Router} from '@angular/router';
   imports: [
     ReactiveFormsModule,
     NgForOf,
-    NgIf
+    NgIf,
+    BookSearchComponent
   ]
 })
 export class BookListComponent implements OnInit {
@@ -94,6 +96,7 @@ export class BookListComponent implements OnInit {
           b.id === updatedBook.id ? updatedBook : b
         );
         this.dialog.closeAll();
+        window.location.reload();
       },
       error: (err) => console.error('Error updating book:', err),
     });
@@ -109,6 +112,7 @@ export class BookListComponent implements OnInit {
         next: () => {
           this.books = this.books.filter(bookAux => bookAux.id !== book.id);
           console.log('Livro deletado com sucesso!');
+          window.location.reload();
         },
         error: (err) => console.error('Error deleting book:', err),
       });
