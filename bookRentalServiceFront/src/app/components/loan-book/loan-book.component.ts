@@ -49,6 +49,7 @@ export class LoanBookComponent {
         next: (loan) => {
           console.log('Erro ao criar emprestimo', loan);
           this.dialogRef.close();
+          window.location.reload();
         },
         error: (error) => {
           console.error('Erro ao criar emprestimo', error);

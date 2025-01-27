@@ -2,10 +2,10 @@
 <form [formGroup]="loanBook" (ngSubmit)="onSubmit()">
 
   <div class="form-group">
-    <label for="returnDate">Return Date</label>
+    <label for="returnDate">Data de devolução</label>
     <input id="returnDate" type="date" formControlName="returnDate" />
   </div>
 
-  <button type="submit" [disabled]="loanBook.invalid">Submit</button>
-  <button type="button" (click)="onCancel()">Cancel</button>
+  <button type="submit" [disabled]="loanBook.invalid">Emprestar</button>
+  <button type="button" (click)="onCancel()">Cancelar</button>
 </form>
